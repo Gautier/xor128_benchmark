@@ -1,1 +1,5 @@
 *.un~
+xor_idiomatic_c
+xor_idiomatic_go
+xor_inline_go
+xor_inline_c
