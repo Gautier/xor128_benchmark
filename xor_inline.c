@@ -39,5 +39,8 @@ int main(int argc, char *argv[]) {
 
     printf ("%ld\n", mtime);
 
-    return w;
+    // side-effecting the world
+    srand(w);
+
+    return 0;
 }
