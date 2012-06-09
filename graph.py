@@ -44,6 +44,11 @@ def plot_results(ns, results, output_file):
                (170, 170, 170))
     palette = [map(lambda x: x / 255., p) for p in palette]
 
+    plt.ylabel('N')
+    plt.yticks(ind+width, ["%.4g" % n for n in ns])
+    plt.xlabel('time in ms')
+    plt.xscale('log')
+
     rects = []
     legends = []
     for i, (legend, result) in enumerate(results.items()):
@@ -55,10 +60,6 @@ def plot_results(ns, results, output_file):
         legends.append(legend)
 
     plt.legend((rect[0] for rect in rects), legends, loc='lower right')
-
-    plt.ylabel('N')
-    plt.yticks(ind+width, ["%.4g" % n for n in ns])
-    plt.xlabel('time in ms')
 
     plt.savefig(output_file, format='png')
     plt.show()
