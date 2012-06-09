@@ -42,8 +42,8 @@ def compile_go():
     subprocess.call("go build -o xor_idiomatic_go xor_idiomatic.go", shell=True)
 
 def compile_c():
-    subprocess.call("gcc -o xor_inline_c xor_inline.c", shell=True)
-    subprocess.call("gcc -o xor_idiomatic_c xor_idiomatic.c", shell=True)
+    subprocess.call("gcc -O3 -o xor_inline_c xor_inline.c", shell=True)
+    subprocess.call("gcc -O3 -o xor_idiomatic_c xor_idiomatic.c", shell=True)
 
 
 def run_tests(test_values):
