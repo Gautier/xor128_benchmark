@@ -57,7 +57,7 @@ def plot_results(ns, results, output_file):
     plt.legend((rect[0] for rect in rects), legends, loc='lower right')
 
     plt.ylabel('N')
-    plt.yticks(ind+width, ns)
+    plt.yticks(ind+width, ["%.4g" % n for n in ns])
     plt.xlabel('time in ms')
 
     plt.savefig(output_file, format='png')
