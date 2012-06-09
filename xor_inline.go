@@ -7,12 +7,10 @@ import "time"
 
 func main() {
     flag.Parse()
-    var arg_n, err = strconv.ParseInt(flag.Arg(0), 10, 0)
+    var n, err = strconv.ParseUint(flag.Arg(0), 10, 64)
     if err != nil {
         fmt.Printf("error %s", err.Error())
     }
-
-    var n = int(arg_n)
 
     var t0 = time.Now()
 
@@ -23,7 +21,8 @@ func main() {
 
     var t uint32 = 0
 
-    for i := 0; i < n; i++ {
+    var i uint64 = 0
+    for ; i < n; i++ {
         t = x ^ (x << 11)
         x = y
         y = z
