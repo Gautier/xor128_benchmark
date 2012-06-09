@@ -74,10 +74,10 @@ def display_results(test_values, tests):
         print
 
 
-def save_results(test_values, tests):
+def save_results(test_values, tests, outfile):
     headers = [test_name for test_name, test_command in TESTS]
 
-    with open("results.csv", "w") as f:
+    with open(outfile, "w") as f:
         writer = csv.writer(f)
         writer.writerow(["n"] + headers)
         for n, results in zip(test_values, tests):
@@ -85,11 +85,12 @@ def save_results(test_values, tests):
 
 
 def main():
-    if len(sys.argv) < 2:
-        print "usage: python comparator.py TEST_N1 TEST_N2 ..."
+    if len(sys.argv) < 3:
+        print "usage: python comparator.py RESULT.csv TEST_N1 TEST_N2 ..."
         return
 
-    test_values = sys.argv[1:]
+    outfile = sys.argv[1]
+    test_values = sys.argv[2:]
 
     if not check_compilers_and_interpreters():
         return
@@ -100,7 +101,7 @@ def main():
     tests_results = run_tests(test_values)
 
     display_results(test_values, tests_results)
-    save_results(test_values, tests_results)
+    save_results(test_values, tests_results, outfile)
 
 if __name__  == "__main__":
     main()
