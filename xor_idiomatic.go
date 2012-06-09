@@ -25,17 +25,16 @@ func xor128 () func() uint32 {
 
 func main() {
     flag.Parse()
-    var n_, err = strconv.ParseInt(flag.Arg(0), 10, 0)
+    var n, err = strconv.ParseUint(flag.Arg(0), 10, 64)
     if err != nil {
         fmt.Printf("error %s", err.Error())
     }
 
-    var n = int(n_)
-
     var t0 = time.Now()
 
     rng := xor128()
-    for i := 0; i < n; i++ {
+    var i uint64 = 0
+    for ; i < n; i++ {
         rng()
     }
 

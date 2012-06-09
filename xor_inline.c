@@ -15,8 +15,8 @@ int main(int argc, char *argv[]) {
     }
     struct timeval start, end;
     long mtime, seconds, useconds;    
-    int i;
-    int N = atoi(argv[1]);
+    uint64_t i;
+    uint64_t N = strtoul(argv[1], NULL, 10);
 
     gettimeofday(&start, NULL);
 
