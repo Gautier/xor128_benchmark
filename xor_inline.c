@@ -39,5 +39,5 @@ int main(int argc, char *argv[]) {
 
     printf ("%ld\n", mtime);
 
-    return 0;
+    return w;
 }
